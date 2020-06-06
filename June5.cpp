@@ -25,12 +25,16 @@ public:
         */
         
         // Binary Search
-        int start=0,end=v.size()-1;
-        while(start<end){
+        int start=0,end=v.size()-1,ans;
+        while(start<=end){
             int mid = start + (end-start)/2;
-            if(val>v[mid]) start = mid+1;
-            else end = mid;
+            if(val == v[mid]) return mid;
+            else if(val>v[mid]) start = mid+1;
+            else {
+                end = mid-1;
+                ans = mid;
+            }
         }
-        return start;
+        return ans;
     }
 };
